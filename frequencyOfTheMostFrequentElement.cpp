@@ -21,11 +21,12 @@ public:
     std::sort(nums.begin(), nums.end());
 
     long count = 0;
-    int i = 0;
-    int result = 1;
+    long i = 0;
+    long result = 1;
     for (int j = 1; j < length; j += 1)
     {
-      count += (long)(j - i) * (long)(nums[j] - nums[j - 1]);
+      long nextGap = nums[j] - nums[j - 1];
+      count += (j - i) * nextGap;
       while (count > k)
       {
         count -= nums[j] - nums[i];
