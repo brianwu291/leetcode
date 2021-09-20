@@ -14,28 +14,31 @@
 
 class Solution {
   public:
+    std::string A = "a";
+    std::string B = "b";
+
     int minimumDeletions(std::string s) {
       int length = s.size();
       // count "b"
       std::vector<int> pre(length);
       std::string firstStr;
       firstStr.push_back(s[0]);
-      pre[0] = firstStr == "b" ? 1 : 0;
+      pre[0] = firstStr == B ? 1 : 0;
       for (int i = 1; i < length; i += 1) {
         std::string curStr;
         curStr.push_back(s[i]);
-        int count = curStr == "b" ? 1 : 0;
+        int count = curStr == B ? 1 : 0;
         pre[i] = pre[i - 1] + count;
       }
       // count "a"
       std::vector<int> suf(length);
       std::string lastStr;
       lastStr.push_back(s[length - 1]);
-      suf[length - 1] = lastStr == "a" ? 1 : 0;
+      suf[length - 1] = lastStr == A ? 1 : 0;
       for (int i = length - 2; i >= 0; i -= 1) {
         std::string curStr;
         curStr.push_back(s[i]);
-        int count = curStr == "a" ? 1 : 0;
+        int count = curStr == A ? 1 : 0;
         suf[i] = suf[i + 1] + count;
       }
       
