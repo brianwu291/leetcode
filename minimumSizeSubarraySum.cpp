@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 // https://leetcode.com/problems/minimum-size-subarray-sum/
 
@@ -21,7 +22,7 @@ public:
       if (tempTotal >= target)
       {
         int tempResult = j - i + 1;
-        result = tempResult > result ? result : tempResult;
+        result = std::min(tempResult, result);
         tempTotal -= nums[i];
         i += 1;
       }
