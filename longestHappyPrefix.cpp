@@ -15,17 +15,17 @@ class Solution {
       long j = s.size() - 1;
       long maxLength = 0;
       long mul = 1;
-      long mode = 1e9 + 7;
+      long mod = 1e9 + 7;
 
       while (i < s.size() - 1) {
-        prefixHash = ((prefixHash * 29) + s[i]) % mode;
-        suffixHash = (suffixHash + (s[j] * mul)) % mode;
+        prefixHash = ((prefixHash * 29) + s[i]) % mod;
+        suffixHash = (suffixHash + (s[j] * mul)) % mod;
 
         if (prefixHash == suffixHash) {
           maxLength = i + 1;
         }
 
-        mul = mul * 29 % mode;
+        mul = mul * 29 % mod;
         i += 1;
         j -= 1;
       }
@@ -33,3 +33,15 @@ class Solution {
       return s.substr(0, maxLength);
     }
 };
+
+
+int main()
+{
+  Solution SolutionInstance;
+
+  std::string s = "lel";
+
+  std::string result = SolutionInstance.longestPrefix(s);
+
+  std::cout << "result is: " << result << std::endl;
+}
