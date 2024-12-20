@@ -1,2 +1,2 @@
-# Leetcode Practice With C++ and Golang
+# Leetcode Practice With C++ and Golang and TypeScript
 
